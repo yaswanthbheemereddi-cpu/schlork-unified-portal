@@ -1,46 +1,69 @@
 import { motion } from "framer-motion";
-import { BookOpen, Users, Award, Target } from "lucide-react";
+import { Lightbulb, Shield, Cpu, HeartHandshake } from "lucide-react";
+import whyChoose from "@/assets/why-choose.jpg";
 
-const pillars = [
-  { icon: BookOpen, title: "Academic Excellence", desc: "Delivering quality education through innovative curricula and modern pedagogical methods." },
-  { icon: Users, title: "Student-Centric", desc: "Every initiative is designed with the student at the center, ensuring holistic development." },
-  { icon: Award, title: "Accredited Programs", desc: "Internationally recognized programs that meet global education standards." },
-  { icon: Target, title: "Mission Driven", desc: "Committed to making quality education accessible and affordable for all." },
+const benefits = [
+  { icon: Lightbulb, title: "Innovation", desc: "Cutting-edge solutions built on the latest technologies." },
+  { icon: Shield, title: "Security", desc: "Enterprise-grade security in every product we deliver." },
+  { icon: Cpu, title: "Smart Technology", desc: "AI-driven tools for intelligent academic management." },
+  { icon: HeartHandshake, title: "Client-First Approach", desc: "Dedicated support and tailored solutions for every institution." },
 ];
 
 const AboutPvtLtd = () => {
   return (
-    <section className="py-20 px-6 section-alt">
-      <div className="container mx-auto max-w-5xl">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-2">Education Focus</p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Schlork Pvt Ltd
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mb-12 leading-relaxed">
-            Schlork Pvt Ltd is a dedicated education institution committed 100% to transforming the educational landscape.
-            We provide comprehensive academic programs, digital learning environments, and institutional management solutions
-            that prepare students for the challenges of tomorrow.
-          </p>
-        </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {pillars.map((pillar, i) => (
-            <motion.div
-              key={pillar.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-4 p-6 rounded-xl bg-card border border-border card-elevated"
-            >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <pillar.icon className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-foreground mb-1">{pillar.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{pillar.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+    <section id="about-pvt" className="py-20 lg:py-28 px-4 lg:px-8 section-alt">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="order-2 lg:order-1"
+          >
+            <img
+              src={whyChoose}
+              alt="Schlork Pvt Ltd team"
+              className="rounded-2xl shadow-xl w-full object-cover"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="order-1 lg:order-2"
+          >
+            <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+              Company Benefits
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
+              Why Choose Schlork?
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Schlork Pvt Ltd is 100% dedicated to education. We combine technical expertise, industry best practices, and innovative thinking to deliver reliable academic solutions. Our focus on quality, security and scalability ensures long-term success.
+            </p>
+            <p className="text-primary font-semibold italic mb-8">
+              Your Vision. Our Expertise. Limitless Possibilities.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              {benefits.map((b, i) => (
+                <motion.div
+                  key={b.title}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex items-center gap-3 p-3 rounded-lg bg-card border border-border"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <b.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="text-sm font-semibold text-foreground">{b.title}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
